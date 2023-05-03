@@ -1,17 +1,13 @@
 import asyncio
-import json
 from shazamio import Shazam
+import requests
 
+SERVER = 'http://localhost:5000'
 
 async def main():
   shazam = Shazam()
   out = await shazam.recognize_song('kokomo.m4a')
-  pretty = json.dumps(out, indent=4)
-  print(pretty)
-  title = out['track']['title']
-  artist = out['track']['subtitle']
-  print(title)
-  print(artist)
+  response = requests.post(f'{SERVER}/recognize', json=out)
 
 loop = asyncio.get_event_loop()
 loop.run_until_complete(main())
