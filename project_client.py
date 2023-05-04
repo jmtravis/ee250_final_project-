@@ -2,11 +2,12 @@ import asyncio
 from shazamio import Shazam
 import requests
 
-SERVER = 'http://localhost:5000'
+SERVER = 'http://172.20.10.6:5000'
 
 async def main():
   shazam = Shazam()
-  out = await shazam.recognize_song('kokomo.m4a')
+  out = await shazam.recognize_song('dojacat.m4a')
+  print(out)
   response = requests.post(f'{SERVER}/recognize', json=out)
 
 loop = asyncio.get_event_loop()

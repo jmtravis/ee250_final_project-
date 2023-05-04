@@ -1,6 +1,7 @@
 from typing import Dict, List, Optional
 from flask import Flask, request, jsonify
 import pathlib
+from grove_rgb_lcd import *
 
 app = Flask(__name__)
 thisdir = pathlib.Path(__file__).parent.absolute() # path to directory of this file
@@ -8,8 +9,7 @@ thisdir = pathlib.Path(__file__).parent.absolute() # path to directory of this f
 def process_json(song_data):
     title = song_data['track']['title']
     artist = song_data['track']['subtitle']
-    print(title)
-    print(artist)
+    setText(f'{title}\n{artist}')
 
 @app.route('/recognize', methods=['POST'])
 def recognize_song():
