@@ -15,8 +15,15 @@
 
 # Libraries to Download
 
-Flask, Grove_RGB_LCD, AsynchIO, ShazamIO, requests, PyAudio, Wave, OS
-* Also, might need to download FFmpeg and/or run setup.py
+- Flask
+- Grove_RGB_LCD
+- AsynchIO
+- ShazamIO
+- requests
+- PyAudio
+- Wave
+- OS
+*Also, might need to download FFmpeg and/or run setup.py
 
 # General Ideas Used for Project: 
 * Receive song title/artist from ShazamIO
@@ -31,5 +38,5 @@ Flask, Grove_RGB_LCD, AsynchIO, ShazamIO, requests, PyAudio, Wave, OS
 
 # Demonstration Video of Project:
 
-[![ShazamPi Demonstration](https://www.shazam.com/resources/6d5bc923785ad71cf6206e7c624a1d77f98274e2/shazambrand.jpg)](https://youtu.be/rdc01AEyDng)
+[![ShazamPi Demonstration](https://www.shazam.com/resources/6d5bc923785ad71cf6206e7c624a1d77f98274e2/shazambrand.jpg)](https://youtu.be/vz6OsyjE_4E)
 
