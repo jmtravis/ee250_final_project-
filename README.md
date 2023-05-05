@@ -26,5 +26,5 @@ General Ideas Used for Project:
 
 # Demonstration Video of Project:
 
-[![ShazamPi Demonstration][(https://www.shazam.com/resources/6d5bc923785ad71cf6206e7c624a1d77f98274e2/shazambrand.jpg))](https://youtu.be/rdc01AEyDng)
+[![ShazamPi Demonstration](https://www.shazam.com/resources/6d5bc923785ad71cf6206e7c624a1d77f98274e2/shazambrand.jpg))](https://youtu.be/rdc01AEyDng)
 
