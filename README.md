@@ -13,7 +13,7 @@
 5. The server will return the song title and artist(s) name to GrovePi LCD from the JSON data in the client program.
 6. Restart client program to continue finding song titles and artist's names!
 
-General Ideas Used for Project: 
+# General Ideas Used for Project: 
 * Receive song title/artist from ShazamIO
         - Data collection by recording on local computer.
         - Data processing: take JSON file and parsing it for song title/artist through Shazam API.
