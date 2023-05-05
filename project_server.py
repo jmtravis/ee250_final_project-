@@ -9,7 +9,7 @@ thisdir = pathlib.Path(__file__).parent.absolute() # path to directory of this f
 def process_json(song_data):
     title = song_data['track']['title']
     artist = song_data['track']['subtitle']
-    setText(f'{title}\n{artist}')
+    setText(f'{title[:15]}\n{artist[:15]}')
 
 @app.route('/recognize', methods=['POST'])
 def recognize_song():
@@ -20,4 +20,4 @@ def recognize_song():
     return res
 
 if __name__ == '__main__':
-    app.run(port=5000, debug=True)
+    app.run(host='172.20.10.6', port=5000)
