@@ -1,3 +1,5 @@
+# Client runs locally on computer
+
 import asyncio
 from shazamio import Shazam
 import requests
