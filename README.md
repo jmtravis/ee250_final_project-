@@ -32,6 +32,7 @@
         - Node-to-node communication
 * The RPi must process the data, and display the song title/artist on an LCD
         - Visualization element: LCD
+        - X Factor: Records song audio and stores audio to file then sends audio to Shazam API in client program. 
 
 
 # Demonstration Video of Project:
