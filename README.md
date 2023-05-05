@@ -5,7 +5,6 @@
 * Jeremy Pogue 
 
 # Steps for ShazamPi Setup
-
 1. Start RPi with GrovePi LCD attachment and run project_server.py to host the server.
 2. Run project_client.py on local computer (changing SERVER to match hostname of server) and press "ENTER" when prompted to start recording the song 
 3. Play recording of the song next to computer microphone.
@@ -14,15 +13,14 @@
 6. Restart client program to continue finding song titles and artist's names!
 
 # Libraries to Download
-
-- Flask
-- Grove_RGB_LCD
-- AsynchIO
-- ShazamIO
-- requests
-- PyAudio
-- Wave
-- OS
+* Flask
+* Grove_RGB_LCD
+* AsynchIO
+* ShazamIO
+* requests
+* PyAudio
+* Wave
+* OS
 *Also, might need to download FFmpeg and/or run setup.py
 
 # General Ideas Used for Project: 
