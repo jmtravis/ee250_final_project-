@@ -7,23 +7,24 @@ import pyaudio
 import wave
 import os
 
+# This was the hostname of our RPi. Change this accordingly.
 SERVER = 'http://172.20.10.6:5000'
 
 async def main():
-  # the file name output you want to record into
+  # The file name output you want to record into
   filename = "recording.wav"
-  # set the chunk size of 1024 samples
+  # Set the chunk size of 1024 samples
   chunk = 1024
-  # sample format
+  # Sample format
   FORMAT = pyaudio.paInt16
-  # mono, change to 2 if you want stereo
+  # Mono, change to 2 if you want stereo
   channels = 1
   # 44100 samples per second
   sample_rate = 44100
   record_seconds = 10
-  # initialize PyAudio object
+  # Initialize PyAudio object
   p = pyaudio.PyAudio()
-  # open stream object as input & output
+  # Open stream object as input & output
   stream = p.open(format=FORMAT,
                   channels=channels,
                   rate=sample_rate,
@@ -31,39 +32,39 @@ async def main():
                   output=True,
                   frames_per_buffer=chunk)
   frames = []
+  # Wait for user input before beginning recording
   signal = input("Press ENTER to start recording.")
-  # while signal != "\n":
-  #   signal = input("Press ENTER to start recording.")
   print("Recording...")
+  # Read the audio input at consistent intervals over the course of 10 seconds
   for i in range(int(sample_rate / chunk * record_seconds)):
       data = stream.read(chunk, exception_on_overflow = False)
-      # if you want to hear your voice while recording
-      # stream.write(data)
       frames.append(data)
   print("Finished recording.")
-  # stop and close stream
+  # Stop recording and close stream
   stream.stop_stream()
   stream.close()
-  # terminate pyaudio object
+  # Terminate pyaudio object
   p.terminate()
-  # save audio file
-  # open the file in 'write bytes' mode
+  # Save audio file
+  # Open the file in 'write bytes' mode
   wf = wave.open(filename, "wb")
-  # set the channels
+  # Set the channels
   wf.setnchannels(channels)
-  # set the sample format
+  # Set the sample format
   wf.setsampwidth(p.get_sample_size(FORMAT))
-  # set the sample rate
+  # Set the sample rate
   wf.setframerate(sample_rate)
-  # write the frames as bytes
+  # Write the frames as bytes
   wf.writeframes(b"".join(frames))
-  # close the file
+  # Close the file
   wf.close()
+  # Move the audio file to a data folder, for organizational purposes
   os.rename(f'{filename}', f'data/{filename}')
-  # song = sys.argv[1]
+  # Use the audio file as input for the Shazam API, and store the outputted JSON in a variable
   shazam = Shazam()
   out = await shazam.recognize_song(f'data/{filename}')
   print(out)
+  # Make a POST request to the server with the JSON received from the Shazam API
   response = requests.post(f'{SERVER}/recognize', json=out)
 
 loop = asyncio.get_event_loop()
