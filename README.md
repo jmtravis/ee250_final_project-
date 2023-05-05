@@ -21,7 +21,7 @@
 * PyAudio
 * Wave
 * OS
-*Also, might need to download FFmpeg and/or run setup.py
+* Also, might need to download FFmpeg and/or run setup.py
 
 # General Ideas Used for Project: 
 * Receive song title/artist from ShazamIO
